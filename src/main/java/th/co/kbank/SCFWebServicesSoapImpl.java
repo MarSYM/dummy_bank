@@ -9,8 +9,10 @@ package th.co.kbank;
 
 import java.util.List;
 
+import api.CreditLimit;
 //import api.DelayTime;
 import api.DrawdownTrans;
+import gec.scf.CreditLimitServices;
 import gec.scf.DrawdownTransService;
 
 
@@ -75,7 +77,40 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
     }
 
     public java.lang.String inqCreditLimit(java.lang.String transReq, java.lang.String extSysName) throws java.rmi.RemoteException {
-        return null;
+    	
+    	CreditLimitServices creditLimitServices = new CreditLimitServices();
+    	List<CreditLimit> creditLimitList = creditLimitServices.getCreditLimit();
+    	CreditLimit creditLimit = creditLimitList.get(0);
+    	if(Integer.parseInt(creditLimit.getTime())>0){
+    		try {
+    		    Thread.sleep(Integer.parseInt(creditLimit.getTime())*1000);                 //1000 milliseconds is one second.
+    		} catch(InterruptedException ex) {
+    		    Thread.currentThread().interrupt();
+    		}
+    	}
+
+    	String sponsor_ref = transReq.substring(0, 20);	
+    	String buyer_ref = transReq.substring(20, 40);
+    	String product_type = transReq.substring(40, 43);
+    	String request_date_time_stamp = transReq.substring(43, 57);
+    	String request_mode = transReq.substring(57);
+
+//    	double credit_limit  = Double.parseDouble(creditLimit.getOutstanding())+(Double.parseDouble(creditLimit.getRemainingLimit())*100)+(Double.parseDouble(creditLimit.getPendingDebitAmount())*100)+(Double.parseDouble(creditLimit.getPendingDrawdownAmount())*100);
+    	
+    	double creditlimit = (Double.parseDouble(creditLimit.getCreditLimit())*100);
+    	double outstanding = (Double.parseDouble(creditLimit.getOutstanding())*100);
+    	double remaininglimit = (Double.parseDouble(creditLimit.getRemainingLimit())*100);
+    	double pendingdrawdownamount = (Double.parseDouble(creditLimit.getPendingDrawdownAmount())*100);
+    	double pendingdebitamount = (Double.parseDouble(creditLimit.getPendingDebitAmount())*100);
+    	String result_creditLimit = sponsor_ref + buyer_ref + product_type +
+    			String.format("%-14s",creditLimit.getTnResponseDateTimeStamp())	+ 
+    			String.format("%012.0f",creditlimit)+
+    			String.format("%012.0f",outstanding)+
+    			String.format("%012.0f",remaininglimit)+
+    			String.format("%012.0f",pendingdrawdownamount)+
+    			String.format("%012.0f",pendingdebitamount)+
+    			String.format("%-2s",creditLimit.getReturnStatus());
+    	return result_creditLimit;
     }
 
     public java.lang.String getBuildVersion() throws java.rmi.RemoteException {
