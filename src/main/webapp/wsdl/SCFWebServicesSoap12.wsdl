@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://kbank.co.th/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://kbank.co.th/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://kbank.co.th/">
+      <s:element name="sendDrawdownTrans">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="transReq" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="extSysName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+
+      </s:element>
+      <s:element name="sendDrawdownTransResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="sendDrawdownTransResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendDebitTrans">
+
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="transReq" type="s:string"/>
+            <s:element maxOccurs="1" minOccurs="0" name="extSysName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendDebitTransResponse">
+        <s:complexType>
+
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="sendDebitTransResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="inqCreditLimit">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="transReq" type="s:string"/>
+
+            <s:element maxOccurs="1" minOccurs="0" name="extSysName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="inqCreditLimitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="inqCreditLimitResult" type="s:string"/>
+          </s:sequence>
+
+        </s:complexType>
+      </s:element>
+      <s:element name="getBuildVersion">
+        <s:complexType/>
+      </s:element>
+      <s:element name="getBuildVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="1" minOccurs="0" name="getBuildVersionResult" type="s:string"/>
+
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="sendDrawdownTransSoapIn">
+    <wsdl:part element="tns:sendDrawdownTrans" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="sendDrawdownTransSoapOut">
+
+    <wsdl:part element="tns:sendDrawdownTransResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="sendDebitTransSoapIn">
+    <wsdl:part element="tns:sendDebitTrans" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="sendDebitTransSoapOut">
+    <wsdl:part element="tns:sendDebitTransResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="inqCreditLimitSoapIn">
+
+    <wsdl:part element="tns:inqCreditLimit" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="inqCreditLimitSoapOut">
+    <wsdl:part element="tns:inqCreditLimitResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getBuildVersionSoapIn">
+    <wsdl:part element="tns:getBuildVersion" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getBuildVersionSoapOut">
+
+    <wsdl:part element="tns:getBuildVersionResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="SCFWebServicesSoap">
+    <wsdl:operation name="sendDrawdownTrans">
+      <wsdl:input message="tns:sendDrawdownTransSoapIn"/>
+      <wsdl:output message="tns:sendDrawdownTransSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="sendDebitTrans">
+      <wsdl:input message="tns:sendDebitTransSoapIn"/>
+
+      <wsdl:output message="tns:sendDebitTransSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="inqCreditLimit">
+      <wsdl:input message="tns:inqCreditLimitSoapIn"/>
+      <wsdl:output message="tns:inqCreditLimitSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="getBuildVersion">
+      <wsdl:input message="tns:getBuildVersionSoapIn"/>
+      <wsdl:output message="tns:getBuildVersionSoapOut"/>
+
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SCFWebServicesSoap" type="tns:SCFWebServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendDrawdownTrans">
+      <soap:operation soapAction="http://kbank.co.th/sendDrawdownTrans" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendDebitTrans">
+      <soap:operation soapAction="http://kbank.co.th/sendDebitTrans" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inqCreditLimit">
+      <soap:operation soapAction="http://kbank.co.th/inqCreditLimit" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBuildVersion">
+      <soap:operation soapAction="http://kbank.co.th/getBuildVersion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SCFWebServicesSoap12" type="tns:SCFWebServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendDrawdownTrans">
+      <soap12:operation soapAction="http://kbank.co.th/sendDrawdownTrans" style="document"/>
+
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendDebitTrans">
+      <soap12:operation soapAction="http://kbank.co.th/sendDebitTrans" style="document"/>
+
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inqCreditLimit">
+      <soap12:operation soapAction="http://kbank.co.th/inqCreditLimit" style="document"/>
+
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBuildVersion">
+      <soap12:operation soapAction="http://kbank.co.th/getBuildVersion" style="document"/>
+
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SCFWebServices">
+
+    <wsdl:port binding="tns:SCFWebServicesSoap" name="SCFWebServicesSoap">
+      <soap:address location="http://localhost:8080/Dummy/services/SCFWebServicesSoap"/>
+    </wsdl:port>
+    <wsdl:port binding="tns:SCFWebServicesSoap12" name="SCFWebServicesSoap12">
+      <soap12:address location="http://uatratscf01:443/SCFWebServices.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
