@@ -15,12 +15,10 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
 //    	String str = "0123456789"; 
 //    	System.out.println(str.substring(15, 20));
     	
-    	String sponsor_ref = transReq.substring(0, 20);
+//    	String sponsor_ref = transReq.substring(0, 20);
     	
     	
-    	
-    	
-    	return null;
+    	return "MAR";
     }
 
     public java.lang.String sendDebitTrans(java.lang.String transReq, java.lang.String extSysName) throws java.rmi.RemoteException {
