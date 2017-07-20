@@ -35,7 +35,7 @@ public class SCFWebServicesSoapImplTest {
 		
 		String result = serviceImpl.sendDrawdownTrans(transReq,extSysName);
 		
-		assertEquals("LTAPPROVETXN_01T111132323          20160717104300LOAD_TEST_SPONSOR   LOAD_SUPPLIER1      2400000000  500         20     2400000520  BE000test                                                                                                ",result);
+		assertEquals("LTAPPROVETXN_01T111132323          20160717104300LOAD_TEST_SPONSOR   LOAD_SUPPLIER1      002400000000500         20     24000520    BE000test                                                                                                ",result);
 
 
 		
