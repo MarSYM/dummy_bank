@@ -9,13 +9,13 @@ public class DrawdownTransRepository {
 	
 	
 	public void setDrawdownTrans(DrawdownTrans drawdownTrans){
-		System.out.println("size "+ddTransList.size());
+//		System.out.println("size "+ddTransList.size());
 		if(ddTransList.size()==0){
-			System.out.println("size 0 "+ddTransList.size());
+//			System.out.println("size 0 "+ddTransList.size());
 			ddTransList.add(drawdownTrans);
 		}
 		else {
-			System.out.println("else "+ddTransList.size());
+//			System.out.println("else "+ddTransList.size());
 			ddTransList.set(0, drawdownTrans);
 		}
 			

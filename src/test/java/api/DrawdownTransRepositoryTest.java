@@ -46,7 +46,7 @@ public class DrawdownTransRepositoryTest {
 		drawdownTransRepository.setDrawdownTrans(drawdownTrans2);
 		DrawdownTrans resultDrawdown2 = drawdownTransRepository.getDrawdownTrans();
 		
-		assertEquals("12",resultDrawdown2.getDelayResponseTime());
+		assertEquals("2",resultDrawdown2.getDelayResponseTime());
 		assertEquals("T1111323232",resultDrawdown2.getTradeNavigatorTransactionNo());
 		assertEquals("201607171043002",resultDrawdown2.getTradeNavigatorTransactionTimeStamp());
 		assertEquals("5002",resultDrawdown2.getInterestAmount());
