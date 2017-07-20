@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+ <head>
+ 	<title>Dummy Bank</title>
+    <!-- Bootstrap -->
+    <script th:src="@{/bootstrap-3.3.7-dist/js/lib/angular.min.js}" src="bootstrap-3.3.7-dist/js/lib/angular.min.js"></script>
+    <script th:src="@{/bootstrap-3.3.7-dist/js/lib/angular-ui-router.min.js}" src="bootstrap-3.3.7-dist/js/lib/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="bootstrap-3.3.7-dist/js/headermenu.js"></script>
+    
+    <link th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.min.css}" rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+    
+ </head>
+<body ng-app="routerApp">
+	<nav class="navbar navbar-info navbar-fixed-top">
+		<div class="bg-primary">
+  			<div class="container-fluid">
+    			<div class="navbar-header">
+    				<div class="text-center">
+      					<h2>Bank Dummy Web Service Test</h2>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    		
+    <!-- Menu -->
+    <nav class="navbar navbar-light" style="background-color: #ffffff;">
+  		<div class="container-fluid">
+    		<div class="collapse navbar-collapse" id="myNavbar">
+		    	<ul class="nav navbar-nav">
+		        	<li><a ui-sref="/sendDrawdownTrans">sendDrawdownTrans Test</a></li>
+		       	 	<li><a ui-sref="about">sendDebitTrans Test</a></li>
+		       	 	<li><a ui-sref="about">inqCreditLimit Test</a></li>
+		      	</ul>   
+		    </div>
+		  </div>
+		</nav>  
+	</nav>
+
+	<div class="col-md-12">
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		  <div ui-view="" ></div>
+
+	</div>
+</body>
+</html>

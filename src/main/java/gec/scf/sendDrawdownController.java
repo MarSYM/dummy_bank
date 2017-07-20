@@ -6,10 +6,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class sendDrawdownController {
-
-	@RequestMapping("/sendDrawdownTrans.html")
+	
+	@RequestMapping(value="/bankdummy.html")
+	public ModelAndView scondPage() {
+		return new ModelAndView("bankdummy");
+	}
+	
+	
+	@RequestMapping(value="/sendDrawdownTrans.html")
 	public ModelAndView firstPage() {
-		System.out.print("0000");
 		return new ModelAndView("sendDrawdownTrans");
 	}
 }
+
+	
+
