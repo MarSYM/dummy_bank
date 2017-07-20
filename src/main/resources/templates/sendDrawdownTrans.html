@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html ng-app="application">
+ <head>
+  <meta charset="utf-8"></meta>	
+
+	<link rel="stylesheet" th:href="@{bootstrap-3.3.7-dist/css/bootstrap.min.css}"
+	href="bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+	
+	
+
+
+	<title>Bootstrap 101 Template</title>
+</head>
+<body ng-controller="sendDrawdownTrans as DD">
+<ol class="breadcrumb">
+<form class="form-horizontal" ng-submit="addData(datas)">  
+  <li><h3><smail>sendDrawdownTrans Test</smail></h3></li>
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title">sendDrawdownTrans Delay Response Time Config</h3>
+			</div>
+				<div class="panel-body">
+				<div class="row">
+				<div class="col-md-4" align="right">
+					<label>Delay Response Time</label>
+				</div>
+				<div class="col-md-4">
+				<input type="text" ng-model="data.delayTextbox" id="delay-textbox" name="delayTextInuput" class="form-control" placeholder="please enter seconds Ex.Use 0 not for Delay" ></input>
+				</div>
+			</div>
+		</div>
+</div>
+<br></br>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">sendDrawdownTrans New request Config</h3>
+  </div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-4" align="right" >
+					<label>tradeNavigatorTransactionNo </label>
+				</div>
+				<div class="col-md-4" ng-controller="sendDrawdownTrans as DD">
+				<input type="text" ng-model="data.tradeNavigatorTransactionNo" id="trade-navigator-transaction-no-textbox" name="tradeNavigatorTransactionNo" class="form-control" placeholder="please enter KBANK Loan No."></input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4" align="right">
+					<label>tradeNavigatorTransactionTimeStamp </label>
+				</div>
+				<div class="col-md-4">
+				<input type="text" ng-model="data.tradeNavigatorTransactionTimeStamp" id="trade-navigator-transaction-time-stamp-textbox" name="tradeNavigatorTransactionTimeStamp" class="form-control" placeholder="YYYYMMDDHHMMSS"></input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4" align="right">
+					<label>interestAmount </label>
+				</div>
+				<div class="col-md-4">
+				<input type="text" ng-model="data.interestAmount" id="interest-amount-textbox" name="interestAmount" class="form-control" placeholder="please enter value"></input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4" align="right">
+					<label>repaymentFee	</label>
+				</div>
+				<div class="col-md-4">
+				<input type="text" ng-model="data.repaymentFee" id="repayment-fee-textbox" name="repaymentFee" class="form-control" placeholder="please enter value"></input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4" align="right">
+					<label>returnStatus	</label>
+				</div>
+				<div class="col-md-4">
+				<input type="text" ng-model="data.returnStatus" id="return-status-textbox" name="returnStatus" class="form-control" placeholder="โปรดอ่านรูปแบบการกรอกด่านล่าง"></input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4" align="right">
+				</div>
+				<div class="col-md-5">
+						<div class="panel panel-warning">
+						<div class="panel-heading"><label>รูปแบบการกรอกStatus</label></div>
+								<div class="panel-body">
+									
+									WB : wait queue for Book Loan and Have not been deducted<br></br>
+									C : Cancel Success inTrade Finance<br></br>
+									R : Reject Success in Trade Naviagtor<br></br>
+									FB : Fail to book loan<br></br>
+									B : Book loan Success, Good Fund<br></br>
+									FC : Fail to cancel<br></br>
+									FR : Fail to reject<br></br>
+									FI : Fail to inquiry<br></br>
+									EB : Timeout<br></br>
+										
+								</div>
+						</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4" align="right">
+					<label>returnCode </label>
+				</div>
+				<div class="col-md-4">
+				<input type="text" ng-model="data.returnCode" id="return-code-textbox" name="returnCode" class="form-control" placeholder=""></input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4" align="right">
+					<label>returnMessage </label>
+				</div>
+				<div class="col-md-4">
+				<input type="text" ng-model="data.returnMessage" id="return-message-textbox" name="returnMessage" class="form-control" placeholder=""></input>
+				</div>
+			</div>
+	
+		</div>
+</div>
+				<div class="row">
+						<div class="col-md-4" align="right">
+						</div>
+						<div class="col-md-4">
+							<button class="btn btn-default" type="submit">Save</button>
+						</div>
+
+				</div>
+</form>
+</ol>
+	
+
+
+ 
+ 
+ 
+ 
+ 
+ <script type="text/javascript" src="bootstrap-3.3.7-dist/js/testlib.js"></script>
+    
+ </body>
+</html>

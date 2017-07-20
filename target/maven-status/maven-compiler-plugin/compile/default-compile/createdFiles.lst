@@ -1,0 +1,10 @@
+gec\scf\Application.class
+th\co\kbank\SCFWebServicesSoapSkeleton.class
+th\co\kbank\SCFWebServices.class
+api\DrawdownTrans.class
+th\co\kbank\SCFWebServicesSoapStub.class
+api\DrawdownTransRepository.class
+th\co\kbank\SCFWebServicesSoap.class
+th\co\kbank\SCFWebServicesLocator.class
+th\co\kbank\SCFWebServicesSoapImpl.class
+gec\scf\sendDrawdownController.class
