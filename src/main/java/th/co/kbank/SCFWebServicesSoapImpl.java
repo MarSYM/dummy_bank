@@ -34,24 +34,8 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
     	String loan_type = transReq.substring(125, 127);
     	String reason_message = transReq.substring(127, 255);
     	String request_mode = transReq.substring(255);
-    	
-//    	String drawdown_amount_trim = drawdown_amount.trim();
-//    	int result_repayment_amount = Integer.valueOf(drawdown_amount)+
-//    			Integer.valueOf(drawdownTrans.getInterestAmount())+
-//    			Integer.valueOf(drawdownTrans.getRepaymentFee()) ;
-//    	String repayment_amount = String.valueOf(result_repayment_amount);
-    	
-    	
-//    	double drawdown_amount1 = Double.parseDouble(drawdown_amount);
-//    	System.out.println("result_repayment_amount : " + drawdown_amount1);
-//    	double interestAmount1 = Double.parseDouble(drawdownTrans.getInterestAmount())*100;
-//    	System.out.println("interestAmount1 : " + interestAmount1);
-//    	double RepaymentFee1 = Double.parseDouble(drawdownTrans.getRepaymentFee())*100;
-//    	System.out.println("RepaymentFee1 : " + RepaymentFee1);
 
     	double repayment_amount = Double.parseDouble(drawdown_amount)+(Double.parseDouble(drawdownTrans.getInterestAmount())*100)+(Double.parseDouble(drawdownTrans.getRepaymentFee())*100);
-//    	DecimalFormat mm =  new DecimalFormat("############.##");
-//    	System.out.printf("repayment_amount : %.0f\n" ,mm);
     	
     	String result_drawdownTrans = drawdown_no+
     			String.format("%-20s",drawdownTrans.getTradeNavigatorTransactionNo())	+
