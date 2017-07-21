@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Implementation-Title: Dummy
+Implementation-Title: KBANKDummy
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: scf
 Implementation-Vendor-Id: gec.scf
 Build-Jdk: 1.8.0_111
-Implementation-URL: http://projects.spring.io/spring-boot/Dummy/
+Implementation-URL: http://projects.spring.io/spring-boot/KBANKDummy/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
 
