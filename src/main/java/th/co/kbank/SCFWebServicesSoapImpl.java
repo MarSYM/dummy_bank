@@ -50,8 +50,8 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
 //    	System.out.println("RepaymentFee1 : " + RepaymentFee1);
 
     	double repayment_amount = Double.parseDouble(drawdown_amount)+(Double.parseDouble(drawdownTrans.getInterestAmount())*100)+(Double.parseDouble(drawdownTrans.getRepaymentFee())*100);
-    	DecimalFormat mm =  new DecimalFormat("############.##");
-    	System.out.printf("repayment_amount : %.0f\n" ,mm);
+//    	DecimalFormat mm =  new DecimalFormat("############.##");
+//    	System.out.printf("repayment_amount : %.0f\n" ,mm);
     	
     	String result_drawdownTrans = drawdown_no+
     			String.format("%-20s",drawdownTrans.getTradeNavigatorTransactionNo())	+
@@ -59,7 +59,7 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
     			sponsor_ref+	buyer_ref+		drawdown_amount+
     			String.format("%-12s",drawdownTrans.getInterestAmount())+
     			String.format("%-7s",drawdownTrans.getRepaymentFee())+
-    			String.format("%12.0f",repayment_amount)+
+    			String.format("%012.0f",repayment_amount)+
     			String.format("%-2s",drawdownTrans.getReturnStatus())+
     			String.format("%-3s",drawdownTrans.getReturnCode())+
     			String.format("%-100s",drawdownTrans.getReturnMessage());

@@ -37,8 +37,6 @@ public class SCFWebServicesSoapImplTest {
 		
 		assertEquals("LTAPPROVETXN_01T111132323          20160717104300LOAD_TEST_SPONSOR   LOAD_SUPPLIER1      002400000000500         20     002400052000BE000test                                                                                                ",result);
 		
-//		LTAPPROVETXN_01T111132323          20160717104300LOAD_TEST_SPONSOR   LOAD_SUPPLIER1      002400000000500         20     002400052000BE000test                                                                                                ;
-//		LTAPPROVETXN_01T111132323          20160717104300LOAD_TEST_SPONSOR   LOAD_SUPPLIER1      002400000000500         20     2400052000BE000test                                                                                                ;
 	}
 
 }
