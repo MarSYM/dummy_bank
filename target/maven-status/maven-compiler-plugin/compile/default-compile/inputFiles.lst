@@ -1,10 +1,10 @@
 D:\gecscf\dummy\git-repostory\dummy_bank\src\main\java\api\DrawdownTrans.java
 D:\gecscf\dummy\git-repostory\dummy_bank\src\main\java\th\co\kbank\SCFWebServicesLocator.java
 D:\gecscf\dummy\git-repostory\dummy_bank\src\main\java\th\co\kbank\SCFWebServicesSoap.java
+D:\gecscf\dummy\git-repostory\dummy_bank\src\main\java\gec\scf\DrawdownTransService.java
 D:\gecscf\dummy\git-repostory\dummy_bank\src\main\java\th\co\kbank\SCFWebServices.java
 D:\gecscf\dummy\git-repostory\dummy_bank\src\main\java\gec\scf\Application.java
 D:\gecscf\dummy\git-repostory\dummy_bank\src\main\java\th\co\kbank\SCFWebServicesSoapSkeleton.java
-D:\gecscf\dummy\git-repostory\dummy_bank\src\main\java\gec\scf\sendDrawdownController.java
-D:\gecscf\dummy\git-repostory\dummy_bank\src\main\java\api\DrawdownTransRepository.java
+D:\gecscf\dummy\git-repostory\dummy_bank\src\main\java\gec\scf\ViewController.java
 D:\gecscf\dummy\git-repostory\dummy_bank\src\main\java\th\co\kbank\SCFWebServicesSoapImpl.java
 D:\gecscf\dummy\git-repostory\dummy_bank\src\main\java\th\co\kbank\SCFWebServicesSoapStub.java
