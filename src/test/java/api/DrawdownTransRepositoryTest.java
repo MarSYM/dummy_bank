@@ -1,8 +1,12 @@
 package api;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
 
 import org.junit.Test;
+
+import gec.scf.DrawdownTransService;
 
 public class DrawdownTransRepositoryTest {
 
@@ -19,18 +23,18 @@ public class DrawdownTransRepositoryTest {
 		drawdownTrans.setReturnCode("0000");
 		drawdownTrans.setReturnMessage("test");
 		
-		DrawdownTransRepository drawdownTransRepository = new DrawdownTransRepository();
-		drawdownTransRepository.setDrawdownTrans(drawdownTrans);
-		DrawdownTrans resultDrawdown = drawdownTransRepository.getDrawdownTrans();
+		DrawdownTransService drawdownTransService = new DrawdownTransService();
+		drawdownTransService.setDrawdownTrans(drawdownTrans);
+		List<DrawdownTrans> resultDrawdown = drawdownTransService.getDrawdownTrans();
 		
-		assertEquals("1",resultDrawdown.getDelayResponseTime());
-		assertEquals("T111132323",resultDrawdown.getTradeNavigatorTransactionNo());
-		assertEquals("20160717104300",resultDrawdown.getTradeNavigatorTransactionTimeStamp());
-		assertEquals("500",resultDrawdown.getInterestAmount());
-		assertEquals("20",resultDrawdown.getRepaymentFee());
-		assertEquals("BE",resultDrawdown.getReturnStatus());
-		assertEquals("0000",resultDrawdown.getReturnCode());
-		assertEquals("test",resultDrawdown.getReturnMessage());
+		assertEquals("1",resultDrawdown.get(0).getDelayResponseTime());
+		assertEquals("T111132323",resultDrawdown.get(0).getTradeNavigatorTransactionNo());
+		assertEquals("20160717104300",resultDrawdown.get(0).getTradeNavigatorTransactionTimeStamp());
+		assertEquals("500",resultDrawdown.get(0).getInterestAmount());
+		assertEquals("20",resultDrawdown.get(0).getRepaymentFee());
+		assertEquals("BE",resultDrawdown.get(0).getReturnStatus());
+		assertEquals("0000",resultDrawdown.get(0).getReturnCode());
+		assertEquals("test",resultDrawdown.get(0).getReturnMessage());
 		
 		DrawdownTrans drawdownTrans2 = new DrawdownTrans();
 		
@@ -43,17 +47,17 @@ public class DrawdownTransRepositoryTest {
 		drawdownTrans2.setReturnCode("00002");
 		drawdownTrans2.setReturnMessage("test2");
 		
-		drawdownTransRepository.setDrawdownTrans(drawdownTrans2);
-		DrawdownTrans resultDrawdown2 = drawdownTransRepository.getDrawdownTrans();
+		drawdownTransService.setDrawdownTrans(drawdownTrans2);
+		List<DrawdownTrans> resultDrawdown2 = drawdownTransService.getDrawdownTrans();
 		
-		assertEquals("2",resultDrawdown2.getDelayResponseTime());
-		assertEquals("T1111323232",resultDrawdown2.getTradeNavigatorTransactionNo());
-		assertEquals("201607171043002",resultDrawdown2.getTradeNavigatorTransactionTimeStamp());
-		assertEquals("5002",resultDrawdown2.getInterestAmount());
-		assertEquals("202",resultDrawdown2.getRepaymentFee());
-		assertEquals("BE2",resultDrawdown2.getReturnStatus());
-		assertEquals("00002",resultDrawdown2.getReturnCode());
-		assertEquals("test2",resultDrawdown2.getReturnMessage());
+		assertEquals("2",resultDrawdown2.get(0).getDelayResponseTime());
+		assertEquals("T1111323232",resultDrawdown2.get(0).getTradeNavigatorTransactionNo());
+		assertEquals("201607171043002",resultDrawdown2.get(0).getTradeNavigatorTransactionTimeStamp());
+		assertEquals("5002",resultDrawdown2.get(0).getInterestAmount());
+		assertEquals("202",resultDrawdown2.get(0).getRepaymentFee());
+		assertEquals("BE2",resultDrawdown2.get(0).getReturnStatus());
+		assertEquals("00002",resultDrawdown2.get(0).getReturnCode());
+		assertEquals("test2",resultDrawdown2.get(0).getReturnMessage());
 	}
 
 }
