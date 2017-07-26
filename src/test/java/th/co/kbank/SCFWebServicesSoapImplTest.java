@@ -1,14 +1,10 @@
 package th.co.kbank;
 
-import static org.junit.Assert.*;
-
-import java.rmi.RemoteException;
-import java.util.List;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 import api.DrawdownTrans;
-import api.DrawdownTransRepository;
 import gec.scf.DrawdownTransService;
 
 public class SCFWebServicesSoapImplTest {
@@ -27,8 +23,8 @@ public class SCFWebServicesSoapImplTest {
 		drawdownTrans.setReturnCode("000");
 		drawdownTrans.setReturnMessage("test");
 		
-		DrawdownTransService drawdownTransRepository = new DrawdownTransService();
-		drawdownTransRepository.setDrawdownTrans(drawdownTrans);
+		DrawdownTransService drawdownTransService = new DrawdownTransService();
+		drawdownTransService.setDrawdownTrans(drawdownTrans);
 //		 List<DrawdownTrans> resultDrawdown = drawdownTransRepository.getDrawdownTrans();
 		
 		SCFWebServicesSoapImpl serviceImpl = new SCFWebServicesSoapImpl();

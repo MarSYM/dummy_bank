@@ -1,29 +1,42 @@
 var myApp = angular.module('myApp',[]);
 
 myApp.controller('index', ['$scope','$http', function($scope,$http) {
-//	$scope.data = [];
 	
-	$scope.output = "first <3";
+	$scope.data = {
+    		"delayResponseTime" : "",
+    		"tradeNavigatorTransactionNo" : "",
+    		"tradeNavigatorTransactionTimeStamp" : "",
+    		"interestAmount" : "",
+    		"repaymentFee" : "",
+    		"returnStatus" : "",
+    		"returnCode" : "",
+    		"returnMessage" : ""
+    };
+
 	
 	$scope.getDrawdownTrans = function() { 
 		var url = "/servives/drawdown";
 		$http.get(url).success(function(response){
-		$scope.data = response;
-		console.log($scope.data);
-		
+			$scope.resp = response;
+			$scope.data = $scope.resp[0];
 		});
 	};
 	
-	$scope.setDrawdownTrans = function(datas) {
-		console.log(datas);
-		$scope.data=datas;
+	$scope.setDrawdownTrans = function() {
 		
-		var url = "/servives/drawdown1";
-		$http.post(url).success(function(response){
+		var url = "/servives/drawdown";
+		$http.post(url, $scope.data).success(function(response){
 		$scope.datas = response;
-		console.log($scope.data);
+
+		$scope.data = $scope.datas[0];
+
 		
 		});
 	};
+    
+	$scope.init = function() {
+    	$scope.getDrawdownTrans();
+    }
 	
+	$scope.init();
 }]);

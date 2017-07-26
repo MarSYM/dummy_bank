@@ -45,7 +45,7 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
     			String.format("%-2s",drawdownTrans.get(0).getReturnStatus())+
     			String.format("%-3s",drawdownTrans.get(0).getReturnCode())+
     			String.format("%-100s",drawdownTrans.get(0).getReturnMessage());
-    	System.out.println("result_drawdownTrans :"+result_drawdownTrans);
+    	
     	return result_drawdownTrans;
     }
 
