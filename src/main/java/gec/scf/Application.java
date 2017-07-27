@@ -14,27 +14,18 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
-//@SpringBootApplication
+@SpringBootApplication
 public class Application {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-	
-	@Bean
-	public AxisServlet dispatcherServlet() {
-		return new AxisServlet();
-	}
 
 	@Bean
-	public ServletRegistrationBean dispatchServletRegistration() {
+	public ServletRegistrationBean axisServletRegistration() {
 
 		ServletRegistrationBean registration = new ServletRegistrationBean(
-				dispatcherServlet(), "/services/*");
-
-		registration
-				.setName(DispatcherServletAutoConfiguration.DEFAULT_DISPATCHER_SERVLET_REGISTRATION_BEAN_NAME);
-
+				new AxisServlet(), "/services/*");
 		return registration;
 
 	}
