@@ -12,10 +12,12 @@ import java.util.List;
 import api.DrawdownTrans;
 import gec.scf.DrawdownTransService;
 
+
+
 public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
 	
     public java.lang.String sendDrawdownTrans(java.lang.String transReq, java.lang.String extSysName) throws java.rmi.RemoteException {
-    	
+    	System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
     	DrawdownTransService drawdownTransService = new DrawdownTransService();
     	List<DrawdownTrans> drawdownTrans = drawdownTransService.getDrawdownTrans();
     	
