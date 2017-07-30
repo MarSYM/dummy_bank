@@ -19,8 +19,16 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
     public java.lang.String sendDrawdownTrans(java.lang.String transReq, java.lang.String extSysName) throws java.rmi.RemoteException {
     	System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
     	DrawdownTransService drawdownTransService = new DrawdownTransService();
-    	List<DrawdownTrans> drawdownTrans = drawdownTransService.getDrawdownTrans();
-    	
+    	List<DrawdownTrans> drawdownTransList = drawdownTransService.getDrawdownTrans();
+    	DrawdownTrans drawdownTrans = drawdownTransList.get(0);
+//    	if(Integer.parseInt(drawdownTrans.getDelayResponseTime())>0){
+//    		try {
+//    		    Thread.sleep(Integer.parseInt(drawdownTrans.getDelayResponseTime())*1000);                 //1000 milliseconds is one second.
+//    		} catch(InterruptedException ex) {
+//    		    Thread.currentThread().interrupt();
+//    		}
+//    	}
+
     	String sponsor_ref = transReq.substring(0, 20);	
     	String buyer_ref = transReq.substring(20, 40);
     	String drawdown_no = transReq.substring(40, 55);
@@ -35,18 +43,18 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
     	String reason_message = transReq.substring(127, 255);
     	String request_mode = transReq.substring(255);
 
-    	double repayment_amount = Double.parseDouble(drawdown_amount)+(Double.parseDouble(drawdownTrans.get(0).getInterestAmount())*100)+(Double.parseDouble(drawdownTrans.get(0).getRepaymentFee())*100);
+    	double repayment_amount = Double.parseDouble(drawdown_amount)+(Double.parseDouble(drawdownTrans.getInterestAmount())*100)+(Double.parseDouble(drawdownTrans.getRepaymentFee())*100);
     	
     	String result_drawdownTrans = drawdown_no+
-    			String.format("%-20s",drawdownTrans.get(0).getTradeNavigatorTransactionNo())	+
-    			String.format("%-14s",drawdownTrans.get(0).getTradeNavigatorTransactionTimeStamp())+
+    			String.format("%-20s",drawdownTrans.getTradeNavigatorTransactionNo())	+
+    			String.format("%-14s",drawdownTrans.getTradeNavigatorTransactionTimeStamp())+
     			sponsor_ref+	buyer_ref+		drawdown_amount+
-    			String.format("%-12s",drawdownTrans.get(0).getInterestAmount())+
-    			String.format("%-7s",drawdownTrans.get(0).getRepaymentFee())+
+    			String.format("%-12s",drawdownTrans.getInterestAmount())+
+    			String.format("%-7s",drawdownTrans.getRepaymentFee())+
     			String.format("%012.0f",repayment_amount)+
-    			String.format("%-2s",drawdownTrans.get(0).getReturnStatus())+
-    			String.format("%-3s",drawdownTrans.get(0).getReturnCode())+
-    			String.format("%-100s",drawdownTrans.get(0).getReturnMessage());
+    			String.format("%-2s",drawdownTrans.getReturnStatus())+
+    			String.format("%-3s",drawdownTrans.getReturnCode())+
+    			String.format("%-100s",drawdownTrans.getReturnMessage());
     	
     	return result_drawdownTrans;
     }
