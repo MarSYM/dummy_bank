@@ -9,6 +9,7 @@ package th.co.kbank;
 
 import java.util.List;
 
+import api.DelayTime;
 import api.DrawdownTrans;
 import gec.scf.DrawdownTransService;
 
@@ -56,6 +57,16 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
     			String.format("%-3s",drawdownTrans.getReturnCode())+
     			String.format("%-100s",drawdownTrans.getReturnMessage());
     	
+     	String delaytime = drawdownTrans.getDelayResponseTime();
+     	long time = Long.parseLong(delaytime);
+     	time = time*1000;
+     	DelayTime delayTime = new DelayTime();
+     	try {
+			delayTime.Sleep_Working_On_delayResponseTimeTime(time);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	return result_drawdownTrans;
     }
 
