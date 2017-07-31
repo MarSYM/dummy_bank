@@ -22,13 +22,13 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
     	DrawdownTransService drawdownTransService = new DrawdownTransService();
     	List<DrawdownTrans> drawdownTransList = drawdownTransService.getDrawdownTrans();
     	DrawdownTrans drawdownTrans = drawdownTransList.get(0);
-//    	if(Integer.parseInt(drawdownTrans.getDelayResponseTime())>0){
-//    		try {
-//    		    Thread.sleep(Integer.parseInt(drawdownTrans.getDelayResponseTime())*1000);                 //1000 milliseconds is one second.
-//    		} catch(InterruptedException ex) {
-//    		    Thread.currentThread().interrupt();
-//    		}
-//    	}
+    	if(Integer.parseInt(drawdownTrans.getDelayResponseTime())>0){
+    		try {
+    		    Thread.sleep(Integer.parseInt(drawdownTrans.getDelayResponseTime())*1000);                 //1000 milliseconds is one second.
+    		} catch(InterruptedException ex) {
+    		    Thread.currentThread().interrupt();
+    		}
+    	}
 
     	String sponsor_ref = transReq.substring(0, 20);	
     	String buyer_ref = transReq.substring(20, 40);
@@ -57,16 +57,16 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
     			String.format("%-3s",drawdownTrans.getReturnCode())+
     			String.format("%-100s",drawdownTrans.getReturnMessage());
     	
-     	String delaytime = drawdownTrans.getDelayResponseTime();
-     	long time = Long.parseLong(delaytime);
-     	time = time*1000;
-     	DelayTime delayTime = new DelayTime();
-     	try {
-			delayTime.Sleep_Working_On_delayResponseTimeTime(time);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//     	String delaytime = drawdownTrans.getDelayResponseTime();
+//     	long time = Long.parseLong(delaytime);
+//     	time = time*1000;
+//     	DelayTime delayTime = new DelayTime();
+//     	try {
+//			delayTime.Sleep_Working_On_delayResponseTimeTime(time);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
     	return result_drawdownTrans;
     }
 
