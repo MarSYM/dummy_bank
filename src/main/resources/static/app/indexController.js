@@ -3,7 +3,7 @@ var myApp = angular.module('myApp',[]);
 myApp.controller('index', ['$scope','$http', function($scope,$http) {
 	
 	$scope.data = {
-    		"delayResponseTime" : "",
+    		"time" : "",
     		"tradeNavigatorTransactionNo" : "",
     		"tradeNavigatorTransactionTimeStamp" : "",
     		"interestAmount" : "",

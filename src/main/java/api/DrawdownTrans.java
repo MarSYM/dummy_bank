@@ -2,7 +2,7 @@ package api;
 
 public class DrawdownTrans {
 	
-	private String delayResponseTime;
+	private String time;
 	private String tradeNavigatorTransactionNo;
 	private String tradeNavigatorTransactionTimeStamp;
 	private String interestAmount;
@@ -11,11 +11,11 @@ public class DrawdownTrans {
 	private String returnCode;
 	private String returnMessage;
 	
-	public String getDelayResponseTime() {
-		return delayResponseTime;
+	public String getTime() {
+		return time;
 	}
-	public void setDelayResponseTime(String delayResponseTime) {
-		this.delayResponseTime = delayResponseTime;
+	public void setTime(String time) {
+		this.time = time;
 	}
 	
 	public String getTradeNavigatorTransactionNo() {

@@ -14,7 +14,7 @@ public class SCFWebServicesSoapImplTest {
 	public void when_client_and_gateway_gecscf_send_data_then_should_return_data_follow_order() throws java.rmi.RemoteException {
 		DrawdownTrans drawdownTrans = new DrawdownTrans();
 		
-		drawdownTrans.setDelayResponseTime("0");
+		drawdownTrans.setTime("0");
 		drawdownTrans.setTradeNavigatorTransactionNo("T111132323");
 		drawdownTrans.setTradeNavigatorTransactionTimeStamp("20160717104300");
 		drawdownTrans.setInterestAmount("500");

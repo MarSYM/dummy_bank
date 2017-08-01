@@ -10,7 +10,7 @@ public class DrawdownTransTest {
 	public void test_class_drawdown_trans() {
 		DrawdownTrans data = new DrawdownTrans();
 		
-		data.setDelayResponseTime("1");
+		data.setTime("1");
 		data.setTradeNavigatorTransactionNo("T111132323");
 		data.setTradeNavigatorTransactionTimeStamp("20160717104300");
 		data.setInterestAmount("500");
@@ -19,7 +19,7 @@ public class DrawdownTransTest {
 		data.setReturnCode("0000");
 		data.setReturnMessage("test");
 		
-		assertEquals("1",data.getDelayResponseTime());
+		assertEquals("1",data.getTime());
 		assertEquals("T111132323",data.getTradeNavigatorTransactionNo());
 		assertEquals("20160717104300",data.getTradeNavigatorTransactionTimeStamp());
 		assertEquals("500",data.getInterestAmount());

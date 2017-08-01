@@ -14,7 +14,7 @@ public class DrawdownTransServiceTest {
 	public void when_resave_then_should_return_new_value() {
 		DrawdownTrans drawdownTrans = new DrawdownTrans();
 		
-		drawdownTrans.setDelayResponseTime("1");
+		drawdownTrans.setTime("1");
 		drawdownTrans.setTradeNavigatorTransactionNo("T111132323");
 		drawdownTrans.setTradeNavigatorTransactionTimeStamp("20160717104300");
 		drawdownTrans.setInterestAmount("500");
@@ -27,7 +27,7 @@ public class DrawdownTransServiceTest {
 		drawdownTransService.setDrawdownTrans(drawdownTrans);
 		List<DrawdownTrans> resultDrawdownList = drawdownTransService.getDrawdownTrans();
 		DrawdownTrans resultDrawdown = resultDrawdownList.get(0);
-		assertEquals("1",resultDrawdown.getDelayResponseTime());
+		assertEquals("1",resultDrawdown.getTime());
 		assertEquals("T111132323",resultDrawdown.getTradeNavigatorTransactionNo());
 		assertEquals("20160717104300",resultDrawdown.getTradeNavigatorTransactionTimeStamp());
 		assertEquals("500",resultDrawdown.getInterestAmount());
@@ -38,7 +38,7 @@ public class DrawdownTransServiceTest {
 		
 		DrawdownTrans drawdownTrans2 = new DrawdownTrans();
 		
-		drawdownTrans2.setDelayResponseTime("2");
+		drawdownTrans2.setTime("2");
 		drawdownTrans2.setTradeNavigatorTransactionNo("T1111323232");
 		drawdownTrans2.setTradeNavigatorTransactionTimeStamp("201607171043002");
 		drawdownTrans2.setInterestAmount("5002");
@@ -50,7 +50,7 @@ public class DrawdownTransServiceTest {
 		drawdownTransService.setDrawdownTrans(drawdownTrans2);
 		List<DrawdownTrans> resultDrawdownList2 = drawdownTransService.getDrawdownTrans();
 		DrawdownTrans resultDrawdown2 = resultDrawdownList2.get(0);
-		assertEquals("2",resultDrawdown2.getDelayResponseTime());
+		assertEquals("2",resultDrawdown2.getTime());
 		assertEquals("T1111323232",resultDrawdown2.getTradeNavigatorTransactionNo());
 		assertEquals("201607171043002",resultDrawdown2.getTradeNavigatorTransactionTimeStamp());
 		assertEquals("5002",resultDrawdown2.getInterestAmount());

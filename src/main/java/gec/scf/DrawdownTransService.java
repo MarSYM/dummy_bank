@@ -41,7 +41,7 @@ public class DrawdownTransService {
 	public DrawdownTrans setDefaultToList(){
 		DrawdownTrans drawdownDefault = new DrawdownTrans();
 		
-		drawdownDefault.setDelayResponseTime("0");
+		drawdownDefault.setTime("0");
 		drawdownDefault.setTradeNavigatorTransactionNo("TEMP");
 		drawdownDefault.setTradeNavigatorTransactionTimeStamp("20160523160000");
 		drawdownDefault.setInterestAmount("400");

@@ -9,7 +9,7 @@ package th.co.kbank;
 
 import java.util.List;
 
-import api.DelayTime;
+//import api.DelayTime;
 import api.DrawdownTrans;
 import gec.scf.DrawdownTransService;
 
@@ -18,13 +18,13 @@ import gec.scf.DrawdownTransService;
 public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
 	
     public java.lang.String sendDrawdownTrans(java.lang.String transReq, java.lang.String extSysName) throws java.rmi.RemoteException {
-    	System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
+//    	System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
     	DrawdownTransService drawdownTransService = new DrawdownTransService();
     	List<DrawdownTrans> drawdownTransList = drawdownTransService.getDrawdownTrans();
     	DrawdownTrans drawdownTrans = drawdownTransList.get(0);
-    	if(Integer.parseInt(drawdownTrans.getDelayResponseTime())>0){
+    	if(Integer.parseInt(drawdownTrans.getTime())>0){
     		try {
-    		    Thread.sleep(Integer.parseInt(drawdownTrans.getDelayResponseTime())*1000);                 //1000 milliseconds is one second.
+    		    Thread.sleep(Integer.parseInt(drawdownTrans.getTime())*1000);                 //1000 milliseconds is one second.
     		} catch(InterruptedException ex) {
     		    Thread.currentThread().interrupt();
     		}
