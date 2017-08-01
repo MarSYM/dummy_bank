@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Dummy Bank!</title>
+    <link rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
+    <link rel="stylesheet" href="../static/bootstrap.min.css" th:href="@{/bootstrap.min.css}"/>
+    <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
+   	<script type="text/javascript" src="/static/angular-ui-router.min.js" th:src="@{/angular-ui-router.min.js}"></script>
+   
+    <script type="text/javascript" src="/static/app/inqcreditlimitController.js" th:src="@{/app/inqcreditlimitController.js}"></script>
+    <!-- script type="text/javascript" src="/static/app/drawdownCtrl.js" th:src="@{/app/drawdownCtrl.js}"></script -->
+</head>
+<body ng-app="myApp">
+	<div ng-controller="index as vm">
+	    <nav class="navbar navbar-info navbar-fixed-top ">
+			<div class="bg-primary">
+	  			<div class="container-fluid">
+	    			<div class="navbar-header">
+	    				<div class="text-center">
+	      					<h2>Bank Dummy Web Service Test</h2>
+	    				</div>
+	    			</div>
+	    		</div>
+	    	</div>
+	    		
+	    <!-- Menu -->
+	    <nav class="navbar navbar-light " style="background-color: #ffffff;">
+	  		<div class="container-fluid">
+	    		<div class="collapse navbar-collapse" id="myNavbar">
+			    	<ul class="nav navbar-nav col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			        	<li><a ui-sref="about">sendDrawdownTrans Test</a></li>
+			       	 	<li><a ui-sref="about">sendDebitTrans Test</a></li>
+			       	 	<li><a ui-sref="about">inqCreditLimit Test</a></li>
+			      	</ul>   
+			    </div>
+			  </div>
+			</nav>  
+		</nav>
+		<div style="margin-top:130px;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+		
+			<ol class="breadcrumb">
+				<form class="form-horizontal" ng-submit="setInqCredit(data)">  
+				  <h3>inqCreditLimit Test</h3>
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<h3 class="panel-title">inqCreditLimit Delay Response Time Config</h3>
+							</div>
+								<div class="panel-body">
+								<div class="row">
+								<div class="col-md-4" align="right">
+									<label>Delay Response Time</label>
+								</div>
+								<div class="col-md-4">
+								<input type="text" ng-model="data.time" id="delay-textbox" name="delayTextInuput" class="form-control" placeholder="please enter seconds Ex.Use 0 not for Delay" ></input>
+								</div>
+							</div>
+						</div>
+				</div>
+				
+				<div class="panel panel-info">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">inqCreditLimit Config</h3>
+				  </div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-4" align="right" >
+									<label>tnResponseDateTimeStamp</label>
+								</div>
+								<div class="col-md-4">
+								<input type="text" ng-model="data.tnResponseDateTimeStamp" id="tn-Response-Date-Time-Stamp-textbox" name="tnResponseDateTimeStamp" class="form-control" placeholder="YYYYMMDDHHMMSS"></input>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4" align="right">
+									<label>creditLimit</label>
+								</div>
+								<div class="col-md-4">
+								<input type="text" ng-model="data.creditLimit" id="credit-Limit-textbox" name="creditLimit" class="form-control" placeholder="กรุณากรอกวงเงิน  (ตัวอย่าง บาท.สตางค์)"></input>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4" align="right">
+									<label>outstanding</label>
+								</div>
+								<div class="col-md-4">
+								<input type="text" ng-model="data.outstanding" id="out-standing-textbox" name="outstanding" class="form-control" placeholder="please enter value"></input>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4" align="right">
+									<label>remainingLimit</label>
+								</div>
+								<div class="col-md-4">
+								<input type="text" ng-model="data.remainingLimit" id="remaining-Limit-textbox" name="remainingLimit" class="form-control" placeholder="please enter value"></input>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4" align="right">
+									<label>pendingDrawdownAmount</label>
+								</div>
+								<div class="col-md-4">
+								<input type="text" ng-model="data.pendingDrawdownAmount" id="pending-Drawdown-Amount-textbox" name="pendingDrawdownAmount" class="form-control" placeholder="please enter value"></input>
+								</div>
+							</div>
+			
+							<div class="row">
+								<div class="col-md-4" align="right">
+									<label>pendingDebitAmount</label>
+								</div>
+								<div class="col-md-4">
+								<input type="text" ng-model="data.pendingDebitAmount" id="pending-Debit-Amount-textbox" name="pendingDebitAmount" class="form-control" placeholder="please enter value"></input>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4" align="right">
+									<label>returnStatus</label>
+								</div>
+								<div class="col-md-4">
+								<input type="text" ng-model="data.returnStatus" id="return-Status-textbox" name="returnStatus" class="form-control" placeholder="please enter value"></input>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4" align="right">
+								</div>
+								<div class="col-md-5">
+										<div class="panel panel-warning">
+										<div class="panel-heading"><label>รูปแบบการกรอกStatus</label></div>
+												<div class="panel-body">
+													SI : Success to inquiry<br></br>
+													FI : Fail to inquiry
+												</div>
+										</div>
+								</div>
+							</div>
+							<div class="row">
+										<div class="col-md-10" align="right"></div>
+										<div class="col-md-2">
+											<button class="btn btn-primary" type="submit">Save</button>
+										</div>
+				
+								</div>
+						</div>
+				</div>
+								
+				</form>
+		</ol>
+	</div>
+</body>
+</html>
