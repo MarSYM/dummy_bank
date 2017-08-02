@@ -16,9 +16,15 @@ public class ViewController {
         appMode = environment.getProperty("app-mode");
     }
 
-    @RequestMapping("/")
-    public String index(Model model){
+    @RequestMapping("/drawdown")
+    public String drawdownpage(Model model){
 
         return "index";
+    }
+    
+    @RequestMapping("/inqcreditlimit")
+    public String inqpage(Model model){
+
+        return "inqcreditlimit";
     }
 }
