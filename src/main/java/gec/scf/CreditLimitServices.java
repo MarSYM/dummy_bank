@@ -13,7 +13,7 @@ import api.CreditLimit;
 
 @RestController
 @RequestMapping(value = "/servives")
-public class CreditLimitTransServices {
+public class CreditLimitServices {
 	public static List<CreditLimit> creditLimitList = new ArrayList<CreditLimit>();
 
 	@RequestMapping(value = "/creditLimit", method = RequestMethod.POST)
