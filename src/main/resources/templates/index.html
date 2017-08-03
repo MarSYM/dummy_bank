@@ -5,6 +5,7 @@
     <title>Dummy Bank!</title>
     <link rel="stylesheet" href="../static/bootstrap.css" th:href="@{/bootstrap.css}" />
     <link rel="stylesheet" href="../static/bootstrap.min.css" th:href="@{/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="../static/alignmentCenter.css" th:href="@{/alignmentCenter.css}"/>
     <script type="text/javascript" src="/static/angular.min.js" th:src="@{/angular.min.js}"></script>
    	<script type="text/javascript" src="/static/angular-ui-router.min.js" th:src="@{/angular-ui-router.min.js}"></script>
    
@@ -47,13 +48,15 @@
 							</div>
 								<div class="panel-body">
 								<div class="row">
-								<div class="col-md-4" align="right">
+								<div class="left">
 									<label>Delay Response Time (seconds)</label>
 								</div>
-								<div class="col-md-4">
+								<div class="blank"></div>
+								<div class="right">
 								<input type="text" ng-model="data.time" id="delay-textbox" name="delayTextInuput" class="form-control" placeholder="please enter seconds Ex.Use 0 not for Delay" ></input>
 								</div>
-								<div>
+								<div class="blank"></div>
+								<div class="tip">
 								(use 0 = not delay)
 								</div>
 							</div>
@@ -66,52 +69,59 @@
 				  </div>
 						<div class="panel-body">
 							<div class="row">
-								<div class="col-md-4" align="right" >
+								<div class="left">
 									<label>tradeNavigatorTransactionNo </label>
 								</div>
-								<div class="col-md-4">
+								<div class="blank"></div>
+								<div class="right">
 								<input type="text" ng-model="data.tradeNavigatorTransactionNo" id="trade-navigator-transaction-no-textbox" name="tradeNavigatorTransactionNo" class="form-control" placeholder="please enter KBANK Loan No."></input>
 								</div>
-								<div>
+								<div class="blank"></div>
+								<div class="tip">
 								(Loan no.)
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-4" align="right">
+								<div class="left">
 									<label>tradeNavigatorTransactionTimeStamp </label>
 								</div>
-								<div class="col-md-4">
+								<div class="blank"></div>
+								<div class="right">
 								<input type="text" ng-model="data.tradeNavigatorTransactionTimeStamp" id="trade-navigator-transaction-time-stamp-textbox" name="tradeNavigatorTransactionTimeStamp" class="form-control" placeholder="YYYYMMDDHHMMSS"></input>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-4" align="right">
+								<div class="left">
 									<label>interestAmount </label>
 								</div>
-								<div class="col-md-4">
+								<div class="blank"></div>
+								<div class="right">
 								<input type="text" ng-model="data.interestAmount" id="interest-amount-textbox" name="interestAmount" class="form-control" placeholder="please enter value"></input>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-4" align="right">
+								<div class="left">
 									<label>repaymentFee	</label>
 								</div>
-								<div class="col-md-4">
+								<div class="blank"></div>
+								<div class="right">
 								<input type="text" ng-model="data.repaymentFee" id="repayment-fee-textbox" name="repaymentFee" class="form-control" placeholder="please enter value"></input>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-4" align="right">
+								<div class="left">
 									<label>returnStatus	</label>
 								</div>
-								<div class="col-md-4">
+								<div class="blank"></div>
+								<div class="right">
 								<input type="text" ng-model="data.returnStatus" id="return-status-textbox" name="returnStatus" class="form-control" placeholder="โปรดอ่านรูปแบบการกรอกด่านล่าง"></input>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-4" align="right">
+								<div class="left">
 								</div>
-								<div class="col-md-5">
+								<div class="blank"></div>
+								<div class="right">
 										<div class="panel panel-warning">
 										<div class="panel-heading"><label>รูปแบบการกรอกStatus</label></div>
 												<div class="panel-body">
@@ -131,25 +141,28 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-4" align="right">
+								<div class="left">
 									<label>returnCode </label>
 								</div>
-								<div class="col-md-4">
+								<div class="blank"></div>
+								<div class="right">
 								<input type="text" ng-model="data.returnCode" id="return-code-textbox" name="returnCode" class="form-control" placeholder=""></input>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-4" align="right">
+								<div class="left">
 									<label>returnMessage </label>
 								</div>
-								<div class="col-md-4">
+								<div class="blank"></div>
+								<div class="right">
 								<input type="text" ng-model="data.returnMessage" id="return-message-textbox" name="returnMessage" class="form-control" placeholder=""></input>
 								</div>
 							</div>
 							<br></br>
 							<div class="row">
-										<div class="col-md-4" align="right"></div>
-										<div class="col-md-4">
+									<div class="left"></div>
+									<div class="blank"></div>
+										<div class="right">
 											<button class="btn btn-primary" type="submit">Save</button>
 										</div>
 				
