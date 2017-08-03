@@ -36,7 +36,7 @@ public class SCFWebServicesSoapImplTestcredit {
 		String result = serviceImpl.inqCreditLimit(transReq,extSysName);
 		System.out.println(result);
 		
-		assertEquals("ponglert            janyaratipong       AAA2             100000      0           100000      0           0           SI",result);
+		assertEquals("ponglert            janyaratipong       AAA2             000010000000000000000000000010000000000000000000000000000000SI",result);
 		
 	}
 
