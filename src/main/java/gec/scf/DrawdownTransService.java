@@ -49,6 +49,13 @@ public class DrawdownTransService {
 		drawdownDefault.setReturnStatus("B");
 		drawdownDefault.setReturnCode("2");
 		drawdownDefault.setReturnMessage("Drawdown Success");
+		drawdownDefault.setTradeNavigatorTransactionNo2("TEMP");
+		drawdownDefault.setTradeNavigatorTransactionTimeStamp2("20160523160000");
+		drawdownDefault.setInterestAmount2("400");
+		drawdownDefault.setRepaymentFee2("100");
+		drawdownDefault.setReturnStatus2("B");
+		drawdownDefault.setReturnCode2("2");
+		drawdownDefault.setReturnMessage2("Drawdown Success");
 		
 		return drawdownDefault;
 	}

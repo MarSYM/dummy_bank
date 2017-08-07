@@ -10,7 +10,14 @@ myApp.controller('index', ['$scope','$http', function($scope,$http) {
     		"repaymentFee" : "",
     		"returnStatus" : "",
     		"returnCode" : "",
-    		"returnMessage" : ""
+    		"returnMessage" : "",
+    		"tradeNavigatorTransactionNo2" : "",
+    		"tradeNavigatorTransactionTimeStamp2" : "",
+    		"interestAmount2" : "",
+    		"repaymentFee2" : "",
+    		"returnStatus2" : "",
+    		"returnCode2" : "",
+    		"returnMessage2" : ""
     };
 
 	
