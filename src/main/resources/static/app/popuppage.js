@@ -1,4 +1,4 @@
 function myFunction() {
     alert("บันทึกรายการสำเร็จ");
-    location.reload();
+    window.parent.location = window.parent.location.href;
 }
