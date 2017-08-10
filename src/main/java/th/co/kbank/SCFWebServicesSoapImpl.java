@@ -44,7 +44,7 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
     	String transaction_type = transReq.substring(124, 125);
     	String loan_type = transReq.substring(125, 127);
     	String reason_message = transReq.substring(127, 255);
-    	String request_mode = transReq.substring(255);
+    	String request_mode = transReq.substring(255, 256);
 
     	double repayment_amount = Double.parseDouble(drawdown_amount)+(Double.parseDouble(drawdownTrans.getInterestAmount())*100)+(Double.parseDouble(drawdownTrans.getRepaymentFee())*100);
     	
@@ -59,16 +59,22 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
     			String.format("%-3s",drawdownTrans.getReturnCode())+
     			String.format("%-100s",drawdownTrans.getReturnMessage());
     	
-//     	String delaytime = drawdownTrans.getDelayResponseTime();
-//     	long time = Long.parseLong(delaytime);
-//     	time = time*1000;
-//     	DelayTime delayTime = new DelayTime();
-//     	try {
-//			delayTime.Sleep_Working_On_delayResponseTimeTime(time);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+    	if (request_mode.equals("I")){
+    		double repayment_amount2 = Double.parseDouble(drawdown_amount)+(Double.parseDouble(drawdownTrans.getInterestAmount2())*100)+(Double.parseDouble(drawdownTrans.getRepaymentFee2())*100);
+    				result_drawdownTrans = drawdown_no+
+        			String.format("%-20s",drawdownTrans.getTradeNavigatorTransactionNo2())	+
+        			String.format("%-14s",drawdownTrans.getTradeNavigatorTransactionTimeStamp2())+
+        			sponsor_ref+	buyer_ref+		drawdown_amount+
+        			String.format("%-12s",drawdownTrans.getInterestAmount2())+
+        			String.format("%-7s",drawdownTrans.getRepaymentFee2())+
+        			String.format("%012.0f",repayment_amount2)+
+        			String.format("%-2s",drawdownTrans.getReturnStatus2())+
+        			String.format("%-3s",drawdownTrans.getReturnCode2())+
+        			String.format("%-100s",drawdownTrans.getReturnMessage2());
+    		
+    	}
+    	
+
     	return result_drawdownTrans;
     }
 
