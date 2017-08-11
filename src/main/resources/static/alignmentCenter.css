@@ -2,26 +2,26 @@ div.left {
 	height: 40px;
   width: 400px;
   text-align: right;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-left: 5px;
   display: table-cell;
   vertical-align: middle;
 
 }
 div.right {
-	height: 25px;
+	height: 40px;
   width: 425px;
   text-align: left;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-left: 5px;
   display: table-cell;
   vertical-align: middle;
 
 }
 div.tip {
-	height: 25px;
+	height: 40px;
   width: 250px;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-left: 5px;
   display: table-cell;
   vertical-align: middle;
