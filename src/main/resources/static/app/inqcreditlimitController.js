@@ -34,6 +34,21 @@ myApp.controller('index', ['$scope','$http', function($scope,$http) {
 		});
 	};
     
+$scope.reset = function() {
+		
+		$scope.data = {
+				"time" : "0",
+	    		"tnResponseDateTimeStamp" : "20160115160000",
+	    		"creditLimit" : "10000000.00",
+	    		"outstanding" : "0",
+	    		"remainingLimit" : "10000000.00",
+	    		"pendingDrawdownAmount" : "0",
+	    		"pendingDebitAmount" : "0",
+	    		"returnStatus" : "SI"
+	    };
+		
+		}
+	
 	$scope.init = function() {
     	$scope.getInqCredit();
     }
