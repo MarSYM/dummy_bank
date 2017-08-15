@@ -17,20 +17,19 @@ myApp.controller('index', ['$scope','$http', function($scope,$http) {
     		"drawdownAmount" : "",
     		"interestAmount" : "",
     		"repaymentFee" : "",
-    		"time" : "",
-    		"paymentTransactionNo" : "",
-    		"tnTransactionTimeStamp" : "",
-    		"debitFee" : "",
-    		"debitAmount" : "",
-    		"returnStatus" : "",
-    		"returnCode" : "",
-    		"returnMessage" : "",
-    		"loanTransactionNo" : "",
-    		"drawdownDate" : "",
-    		"maturityDate" : "",
-    		"drawdownAmount" : "",
-    		"interestAmount" : "",
-    		"repaymentFee" : ""
+    		"paymentTransactionNo2" : "",
+    		"tnTransactionTimeStamp2" : "",
+    		"debitFee2" : "",
+    		"debitAmount2" : "",
+    		"returnStatus2" : "",
+    		"returnCode2" : "",
+    		"returnMessage2" : "",
+    		"loanTransactionNo2" : "",
+    		"drawdownDate2" : "",
+    		"maturityDate2" : "",
+    		"drawdownAmount2" : "",
+    		"interestAmount2" : "",
+    		"repaymentFee2" : ""
     };
 
 	
