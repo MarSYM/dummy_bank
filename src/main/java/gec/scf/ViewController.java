@@ -27,4 +27,11 @@ public class ViewController {
 
         return "inqcreditlimit";
     }
+    
+    @RequestMapping("/debittrans")
+    public String debittranspage(Model model){
+
+        return "debittrans";
+    }
+    
 }
