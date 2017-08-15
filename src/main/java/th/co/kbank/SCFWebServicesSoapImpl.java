@@ -10,9 +10,11 @@ package th.co.kbank;
 import java.util.List;
 
 import api.CreditLimit;
+import api.DebitTrans;
 //import api.DelayTime;
 import api.DrawdownTrans;
 import gec.scf.CreditLimitServices;
+import gec.scf.DebitTransServices;
 import gec.scf.DrawdownTransService;
 
 
@@ -79,7 +81,104 @@ public class SCFWebServicesSoapImpl implements th.co.kbank.SCFWebServicesSoap{
     }
 
     public java.lang.String sendDebitTrans(java.lang.String transReq, java.lang.String extSysName) throws java.rmi.RemoteException {
-        return null;
+    	
+    	DebitTransServices debitTransServices = new DebitTransServices();
+    	List<DebitTrans> debitTransList = debitTransServices.getDebitTrans();
+    	DebitTrans debitTrans = debitTransList.get(0);
+    	if(Integer.parseInt(debitTrans.getTime())>0){
+    		try {
+    		    Thread.sleep(Integer.parseInt(debitTrans.getTime())*1000);                 //1000 milliseconds is one second.
+    		} catch(InterruptedException ex) {
+    		    Thread.currentThread().interrupt();
+    		}
+    	}
+    	
+    	String direct_debit_no = transReq.substring(0, 15);
+    	String sponsor_ref = transReq.substring(15, 35);
+    	String buyer_ref = transReq.substring(35, 55);
+    	String payer_bank_account = transReq.substring(55, 75);
+    	String total_payment_amount = transReq.substring(75, 87);
+    	String request_datetime_stamp = transReq.substring(87, 101);
+    	String Debit_Effective_Date  = transReq.substring(101, 109);
+    	String Debit_Type = transReq.substring(109, 110);
+    	String Transaction_Type = transReq.substring(110, 111);
+    	String Reason_Message = transReq.substring(111, 239);
+    	String Request_Mode = transReq.substring(239, 240);
+    	
+    	
+    	String result_debitTrans = direct_debit_no +
+    			String.format("%-20s",debitTrans.getPaymentTransactionNo())+
+    			String.format("%-14s",debitTrans.getTnTransactionTimeStamp())+
+    			sponsor_ref + buyer_ref + payer_bank_account + total_payment_amount +
+    			String.format("%-7s",debitTrans.getDebitFee())+
+    			String.format("%-12s",debitTrans.getDebitAmount())+
+    			String.format("%-2s",debitTrans.getReturnStatus())+
+    			String.format("%-3s",debitTrans.getReturnCode())+
+    			String.format("%-100s",debitTrans.getReturnMessage());
+    	
+    	if (Request_Mode.equals("I") && debitTrans.getReturnStatus2()!=("DS"))
+		{
+			result_debitTrans = direct_debit_no +
+					String.format("%-20s",debitTrans.getPaymentTransactionNo2())+
+	    			String.format("%-14s",debitTrans.getTnTransactionTimeStamp2())+
+	    			sponsor_ref + buyer_ref + payer_bank_account + total_payment_amount +
+	    			String.format("%-7s",debitTrans.getDebitFee2())+
+	    			String.format("%-12s",debitTrans.getDebitAmount2())+
+	    			String.format("%-2s",debitTrans.getReturnStatus2())+
+	    			String.format("%-3s",debitTrans.getReturnCode2())+
+	    			String.format("%-100s",debitTrans.getReturnMessage2());
+	    			
+		}
+    	else if (debitTrans.getReturnStatus2().equals("DS") && Request_Mode.equals("I") )
+		{
+    		double repayment_amount2 = (Double.parseDouble(debitTrans.getDrawdownAmount2())*100)+(Double.parseDouble(debitTrans.getInterestAmount2())*100)+(Double.parseDouble(debitTrans.getRepaymentFee2())*100);
+			result_debitTrans = direct_debit_no +
+					String.format("%-20s",debitTrans.getPaymentTransactionNo2())+
+	    			String.format("%-14s",debitTrans.getTnTransactionTimeStamp2())+
+	    			sponsor_ref + buyer_ref + payer_bank_account + total_payment_amount +
+	    			String.format("%-7s",debitTrans.getDebitFee2())+
+	    			String.format("%-12s",debitTrans.getDebitAmount2())+
+	    			String.format("%-2s",debitTrans.getReturnStatus2())+
+	    			String.format("%-3s",debitTrans.getReturnCode2())+
+	    			String.format("%-100s",debitTrans.getReturnMessage2())+
+	    			String.format("%-20s",debitTrans.getLoanTransactionNo2())+
+	    			String.format("%-8s",debitTrans.getDrawdownDate2())+
+	    			String.format("%-8s",debitTrans.getMaturityDate2())+
+	    			String.format("%-12s",debitTrans.getDrawdownAmount2())+
+	    			String.format("%-12s",debitTrans.getInterestAmount2())+
+	    			String.format("%-7s",debitTrans.getRepaymentFee2())+ 
+	    			String.format("%012.0f",repayment_amount2);
+		}
+    	
+    			
+    	
+    	
+    	else if (debitTrans.getReturnStatus().equals("DS") && Request_Mode.equals("N"))
+    			{
+    		
+    		double repayment_amount = (Double.parseDouble(debitTrans.getDrawdownAmount())*100)+(Double.parseDouble(debitTrans.getInterestAmount())*100)+(Double.parseDouble(debitTrans.getRepaymentFee())*100);
+    				result_debitTrans = direct_debit_no +
+    						String.format("%-20s",debitTrans.getPaymentTransactionNo())+
+    		    			String.format("%-14s",debitTrans.getTnTransactionTimeStamp())+
+    		    			sponsor_ref + buyer_ref + payer_bank_account + total_payment_amount +
+    		    			String.format("%-7s",debitTrans.getDebitFee())+
+    		    			String.format("%-12s",debitTrans.getDebitAmount())+
+    		    			String.format("%-2s",debitTrans.getReturnStatus())+
+    		    			String.format("%-3s",debitTrans.getReturnCode())+
+    		    			String.format("%-100s",debitTrans.getReturnMessage())+
+    		    			String.format("%-20s",debitTrans.getLoanTransactionNo())+
+    		    			String.format("%-8s",debitTrans.getDrawdownDate())+
+    		    			String.format("%-8s",debitTrans.getMaturityDate())+
+    		    			String.format("%-12s",debitTrans.getDrawdownAmount())+
+    		    			String.format("%-12s",debitTrans.getInterestAmount())+
+    		    			String.format("%-7s",debitTrans.getRepaymentFee())+
+    		    			String.format("%012.0f",repayment_amount);
+    			}
+    			
+    			
+    	
+    	
+        return result_debitTrans;
     }
 
     public java.lang.String inqCreditLimit(java.lang.String transReq, java.lang.String extSysName) throws java.rmi.RemoteException {
